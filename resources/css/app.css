@@ -1,0 +1,284 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../fonts/plus-jakarta-sans/PlusJakartaSans-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../views/**/*.blade.php';
+@source '../../node_modules/flowbite/**/*.js';
+
+@theme {
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --color-brand: var(--ka-navy);
+    --color-brand-strong: var(--ka-dark);
+    --color-brand-medium: var(--ka-light);
+    --color-neutral-primary-medium: #ffffff;
+    --color-neutral-tertiary-medium: #f8fafc;
+    --color-default-medium: #e5e7eb;
+    --color-body: #4b5563;
+    --color-heading: #111827;
+    --radius-base: 0.5rem;
+}
+
+:root {
+    --ka-navy: #1B3A6B;
+    --ka-blue: #1E4D91;
+    --ka-orange: #F47B20;
+    --ka-light: #EBF2FF;
+    --ka-dark: #0F2347;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1B3A6B;
+    border-radius: 3px;
+}
+
+.sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast-enter {
+    animation: slideIn 0.35s ease-out;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 42px;
+    width: 2px;
+    height: calc(100% - 10px);
+    background: #e2e8f0;
+}
+
+.timeline-item.done::after {
+    background: #1B3A6B;
+}
+
+.datepicker, 
+.datepicker-picker,
+.datepicker-header,
+.datepicker-footer,
+.datepicker-main {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}
+
+.datepicker-cell:not(.selected):not(.active) {
+    color: #374151 !important;
+}
+
+.datepicker-cell:not(.selected):not(.active):hover {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+}
+
+.datepicker-cell.selected,
+.datepicker-cell.active {
+    background-color: #1B3A6B !important;
+    color: #ffffff !important;
+}
+
+.datepicker-controls button {
+    background-color: transparent !important;
+    color: #111827 !important;
+}
+
+.datepicker-controls button svg {
+    color: #111827 !important;
+    fill: #111827 !important;
+}
+
+.datepicker-controls button svg path {
+    stroke: #111827 !important;
+    fill: none !important;
+}
+
+.datepicker-controls button:hover {
+    background-color: #f9fafb !important;
+}
+
+.datepicker-title {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}
+
+.datepicker {
+    z-index: 100 !important;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+}
+
+input[type="password"] {
+    font-family: ui-sans-serif, system-ui, sans-serif !important;
+    letter-spacing: 0.15em;
+}
+
+input[type="password"]::placeholder {
+    letter-spacing: 0.1em;
+    font-family: inherit !important;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.premium-gradient {
+    background: linear-gradient(135deg, #1B3A6B 0%, #1E4D91 100%);
+}
+
+.premium-shadow {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.thead-premium {
+    @apply bg-gray-100/60 border-b border-gray-200;
+}
+
+.thead-premium th {
+    @apply font-bold text-gray-900/50 uppercase tracking-widest text-[10px] py-4 px-5;
+}
+
+textarea {
+    min-height: 120px;
+    max-height: 400px;
+    resize: vertical;
+}
