@@ -1,11 +1,10 @@
-FROM php:8.4-fpm
+FROM php:8.3-fpm
 
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
-RUN install-php-extensions pdo_mysql mbstring exif pcntl bcmath gd zip
-
-RUN apt-get update && apt-get install -y \
-    git curl zip unzip nodejs npm \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y \
+    git unzip curl zip libzip-dev \
+    libpng-dev libjpeg-dev libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install pdo pdo_mysql zip gd
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -13,14 +12,9 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader --no-interaction \
-    && npm install && npm run build
+RUN composer install --no-dev --optimize-autoloader
 
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage \
-    && chmod -R 755 /var/www/bootstrap/cache \
-    && chmod +x /var/www/docker/entrypoint.sh
+RUN chmod -R 777 storage bootstrap/cache
 
 EXPOSE 9000
-
-ENTRYPOINT ["/var/www/docker/entrypoint.sh"]
+CMD ["php-fpm"]
